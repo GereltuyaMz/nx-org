@@ -2,15 +2,27 @@
 import styles from './app.module.css';
 import NxWelcome from './nx-welcome';
 
+import { useState, useEffect } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import { PageTitle } from 'libs/ui-header/src';
+import { PageTitle } from '@nx-org/ui-header';
+import { ApiResponse, API_URL } from '@nx-org/api-interface';
 
 export function App() {
+  const [apiResponse, setApiResponse] = useState<ApiResponse>({
+    message: 'Loading...',
+  });
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then((r) => r.json())
+      .then(setApiResponse);
+  }, []);
+
   return (
     <>
       <NxWelcome title="site" />
       <div />
-
+      <h2>{apiResponse.message}</h2>
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}

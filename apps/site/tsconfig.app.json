@@ -19,5 +19,7 @@
     "**/*.spec.jsx",
     "**/*.test.jsx"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+  "@nx-org/ui-header": ["../../libs/ui-header/src"],
+  "@nx-org/api-interface": ["../../libs/api-interface/src"]
 }
